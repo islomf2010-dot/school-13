@@ -1,0 +1,466 @@
+@import "tailwindcss";
+
+@layer base {
+  :root {
+    --font-display: 'Russo One', system-ui, sans-serif;
+    --font-sans: 'Plus Jakarta Sans', system-ui, sans-serif;
+    --font-mono: 'JetBrains Mono', monospace;
+  }
+
+  * {
+    box-sizing: border-box;
+    user-select: none;
+    -webkit-user-select: none;
+  }
+
+  html,
+  body,
+  #root {
+    width: 100%;
+    height: 100%;
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+    background-color: #0f1715;
+    color: #f4f1ea;
+    font-family: var(--font-sans);
+  }
+}
+
+.font-display {
+  font-family: var(--font-display);
+}
+
+.font-mono-num {
+  font-family: var(--font-mono);
+  font-variant-numeric: tabular-nums;
+}
+
+.hud-stroke {
+  paint-order: stroke fill;
+  -webkit-text-stroke: 3px #0b110e;
+  text-shadow: 0 2px 0 #0b110e;
+}
+
+/* ============================================================================
+   CHOREOGRAPHED ANIME ULTIMATE CUTSCENE ANIMATIONS
+   ============================================================================ */
+@keyframes ultLetterboxTop {
+  0% {
+    transform: translateY(-100%);
+  }
+  20% {
+    transform: translateY(0%);
+  }
+  85% {
+    transform: translateY(0%);
+  }
+  100% {
+    transform: translateY(-100%);
+  }
+}
+
+@keyframes ultLetterboxBottom {
+  0% {
+    transform: translateY(100%);
+  }
+  20% {
+    transform: translateY(0%);
+  }
+  85% {
+    transform: translateY(0%);
+  }
+  100% {
+    transform: translateY(100%);
+  }
+}
+
+@keyframes ultBannerSlashIn {
+  0% {
+    transform: translateX(-110%) skewX(-18deg) scaleY(0.25);
+    opacity: 0;
+  }
+  16% {
+    transform: translateX(2%) skewX(-6deg) scaleY(1.06);
+    opacity: 1;
+  }
+  24% {
+    transform: translateX(0%) skewX(0deg) scaleY(1);
+    opacity: 1;
+  }
+  86% {
+    transform: translateX(0%) skewX(0deg) scaleY(1);
+    opacity: 1;
+  }
+  100% {
+    transform: translateX(110%) skewX(16deg) scaleY(0.2);
+    opacity: 0;
+  }
+}
+
+@keyframes ultSpeedLinesMove {
+  0% {
+    background-position: 0 0;
+  }
+  100% {
+    background-position: -320px 140px;
+  }
+}
+
+@keyframes ultImpactFlash {
+  0%, 10% {
+    opacity: 0;
+  }
+  14% {
+    opacity: 0.75;
+  }
+  28% {
+    opacity: 0;
+  }
+  42% {
+    opacity: 0.45;
+  }
+  58%, 100% {
+    opacity: 0;
+  }
+}
+
+/* SHADOW NINJA: Unsheathing Cursed Katana, Tsuba Glint, Sharingan Flare & Screen Slashes */
+@keyframes ultKatanaUnsheathe {
+  0% {
+    transform: translate(-150px, 82px) rotate(-42deg) scale(0.72);
+    opacity: 0;
+  }
+  14% {
+    transform: translate(-115px, 64px) rotate(-38deg) scale(0.86);
+    opacity: 1;
+  }
+  26% {
+    /* Brief tension pause at Tsuba unsheathe click */
+    transform: translate(-95px, 52px) rotate(-35deg) scale(0.92);
+    opacity: 1;
+  }
+  48% {
+    /* Explosive high-speed blade draw across frame! */
+    transform: translate(82px, 146px) rotate(-32deg) scale(1.06);
+    opacity: 1;
+  }
+  75% {
+    transform: translate(92px, 140px) rotate(-30deg) scale(1.02);
+    opacity: 1;
+  }
+  100% {
+    transform: translate(115px, 128px) rotate(-28deg) scale(1);
+    opacity: 0.9;
+  }
+}
+
+@keyframes ultCrescentWaveSweep {
+  0%, 20% {
+    stroke-dasharray: 460;
+    stroke-dashoffset: 460;
+    opacity: 0;
+  }
+  46% {
+    stroke-dasharray: 460;
+    stroke-dashoffset: 0;
+    opacity: 1;
+  }
+  85% {
+    stroke-dasharray: 460;
+    stroke-dashoffset: -120;
+    opacity: 0.85;
+  }
+  100% {
+    stroke-dasharray: 460;
+    stroke-dashoffset: -360;
+    opacity: 0;
+  }
+}
+
+@keyframes ultTsubaStarGlint {
+  0%, 10% {
+    transform: translate(102px, 134px) scale(0) rotate(0deg);
+    opacity: 0;
+  }
+  24% {
+    transform: translate(102px, 134px) scale(2.35) rotate(90deg);
+    opacity: 1;
+  }
+  44% {
+    transform: translate(102px, 134px) scale(0.9) rotate(180deg);
+    opacity: 0.85;
+  }
+  70% {
+    transform: translate(102px, 134px) scale(1.4) rotate(270deg);
+    opacity: 0.9;
+  }
+  100% {
+    transform: translate(102px, 134px) scale(0) rotate(360deg);
+    opacity: 0;
+  }
+}
+
+@keyframes ultSharinganFlare {
+  0% {
+    transform: scaleX(0.05) scaleY(0.2);
+    opacity: 0;
+  }
+  18% {
+    transform: scaleX(1.45) scaleY(1.3);
+    opacity: 1;
+  }
+  40% {
+    transform: scaleX(0.95) scaleY(0.9);
+    opacity: 0.9;
+  }
+  65% {
+    transform: scaleX(1.25) scaleY(1.15);
+    opacity: 1;
+  }
+  100% {
+    transform: scaleX(1) scaleY(1);
+    opacity: 0.85;
+  }
+}
+
+@keyframes ultScreenSlashDraw {
+  0% {
+    stroke-dasharray: 2200;
+    stroke-dashoffset: 2200;
+    opacity: 0;
+  }
+  15% {
+    opacity: 1;
+  }
+  45% {
+    stroke-dasharray: 2200;
+    stroke-dashoffset: 0;
+    opacity: 1;
+  }
+  80% {
+    stroke-dasharray: 2200;
+    stroke-dashoffset: -600;
+    opacity: 0.85;
+  }
+  100% {
+    stroke-dasharray: 2200;
+    stroke-dashoffset: -1800;
+    opacity: 0;
+  }
+}
+
+@keyframes ultScarfWhip {
+  0%, 100% {
+    transform: rotate(0deg) skewY(0deg);
+  }
+  25% {
+    transform: rotate(-6deg) skewY(-4deg);
+  }
+  50% {
+    transform: rotate(5deg) skewY(3deg);
+  }
+  75% {
+    transform: rotate(-4deg) skewY(-3deg);
+  }
+}
+
+@keyframes ultPetalRush {
+  0% {
+    transform: translate(-60px, 35px) rotate(0deg) scale(0.6);
+    opacity: 0;
+  }
+  25% {
+    opacity: 1;
+  }
+  100% {
+    transform: translate(95px, -45px) rotate(240deg) scale(1.25);
+    opacity: 0;
+  }
+}
+
+/* SANDEVISTAN: Sequential Vertebra Ignition, Chromatic Ghost Dash & Spinning Reticle */
+@keyframes ultVertebraIgnite {
+  0% {
+    transform: scaleX(0.5);
+    filter: brightness(0.4);
+  }
+  35% {
+    transform: scaleX(1.18);
+    filter: brightness(2.2);
+  }
+  65% {
+    transform: scaleX(0.96);
+    filter: brightness(1.3);
+  }
+  100% {
+    transform: scaleX(1.05);
+    filter: brightness(1.6);
+  }
+}
+
+@keyframes ultGhostCloneDash {
+  0% {
+    transform: translateX(65px) scale(0.7);
+    opacity: 0;
+  }
+  30% {
+    transform: translateX(0px) scale(1.05);
+    opacity: 0.85;
+  }
+  70% {
+    transform: translateX(-18px) scale(1);
+    opacity: 0.7;
+  }
+  100% {
+    transform: translateX(-35px) scale(0.9);
+    opacity: 0;
+  }
+}
+
+@keyframes ultReticleSpin {
+  0% {
+    transform: rotate(0deg) scale(1.45);
+  }
+  30% {
+    transform: rotate(140deg) scale(0.88);
+  }
+  60% {
+    transform: rotate(250deg) scale(1.08);
+  }
+  100% {
+    transform: rotate(360deg) scale(1);
+  }
+}
+
+/* SONIC BELL: Rapid Bell Ringing Swing, Expanding Acoustic Rings & Flying Exam Papers */
+@keyframes ultBellSwing {
+  0% {
+    transform: translate(180px, 86px) rotate(-28deg) scale(0.85);
+  }
+  18% {
+    transform: translate(180px, 86px) rotate(26deg) scale(1.12);
+  }
+  36% {
+    transform: translate(180px, 86px) rotate(-24deg) scale(1.06);
+  }
+  54% {
+    transform: translate(180px, 86px) rotate(22deg) scale(1.1);
+  }
+  72% {
+    transform: translate(180px, 86px) rotate(-18deg) scale(1.04);
+  }
+  90% {
+    transform: translate(180px, 86px) rotate(14deg) scale(1.02);
+  }
+  100% {
+    transform: translate(180px, 86px) rotate(-10deg) scale(1);
+  }
+}
+
+@keyframes ultShockwavePulse {
+  0% {
+    transform: scale(0.35);
+    opacity: 1;
+  }
+  70% {
+    transform: scale(1.25);
+    opacity: 0.75;
+  }
+  100% {
+    transform: scale(1.55);
+    opacity: 0;
+  }
+}
+
+@keyframes ultTitleSlam {
+  0% {
+    transform: translateX(90px) scale(1.85) skewX(-14deg);
+    opacity: 0;
+  }
+  22% {
+    transform: translateX(-6px) scale(0.94) skewX(-4deg);
+    opacity: 1;
+  }
+  34% {
+    transform: translateX(0px) scale(1.04) skewX(0deg);
+    opacity: 1;
+  }
+  100% {
+    transform: translateX(0px) scale(1) skewX(0deg);
+    opacity: 1;
+  }
+}
+
+.anim-ult-top {
+  animation: ultLetterboxTop 1.25s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
+.anim-ult-bottom {
+  animation: ultLetterboxBottom 1.25s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
+.anim-ult-banner {
+  animation: ultBannerSlashIn 1.25s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
+.anim-ult-speedlines {
+  animation: ultSpeedLinesMove 0.35s linear infinite;
+}
+.anim-ult-flash {
+  animation: ultImpactFlash 1.25s ease-out forwards;
+}
+.anim-ult-katana-draw {
+  animation: ultKatanaUnsheathe 1.25s cubic-bezier(0.19, 1, 0.22, 1) forwards;
+}
+.anim-ult-crescent-sweep {
+  animation: ultCrescentWaveSweep 1.25s cubic-bezier(0.19, 1, 0.22, 1) forwards;
+}
+.anim-ult-tsuba-glint {
+  animation: ultTsubaStarGlint 1.25s ease-out forwards;
+}
+.anim-ult-eye-flare {
+  transform-origin: 122px 67px;
+  animation: ultSharinganFlare 1.25s ease-out forwards;
+}
+.anim-ult-slash-1 {
+  animation: ultScreenSlashDraw 0.85s cubic-bezier(0.16, 1, 0.3, 1) 0.06s both;
+}
+.anim-ult-slash-2 {
+  animation: ultScreenSlashDraw 0.85s cubic-bezier(0.16, 1, 0.3, 1) 0.22s both;
+}
+.anim-ult-slash-3 {
+  animation: ultScreenSlashDraw 0.85s cubic-bezier(0.16, 1, 0.3, 1) 0.36s both;
+}
+.anim-ult-scarf {
+  transform-origin: 110px 80px;
+  animation: ultScarfWhip 0.32s ease-in-out infinite;
+}
+.anim-ult-petal-1 {
+  animation: ultPetalRush 0.85s ease-out 0.1s infinite;
+}
+.anim-ult-petal-2 {
+  animation: ultPetalRush 0.75s ease-out 0.28s infinite;
+}
+.anim-ult-vertebra {
+  transform-origin: 170px 84px;
+  animation: ultVertebraIgnite 0.7s ease-out both;
+}
+.anim-ult-ghost {
+  animation: ultGhostCloneDash 0.95s ease-out both;
+}
+.anim-ult-reticle {
+  animation: ultReticleSpin 1.15s cubic-bezier(0.16, 1, 0.3, 1) infinite;
+}
+.anim-ult-bell {
+  animation: ultBellSwing 1.15s ease-in-out infinite;
+}
+.anim-ult-ring-1 {
+  transform-origin: 180px 92px;
+  animation: ultShockwavePulse 0.65s ease-out infinite;
+}
+.anim-ult-ring-2 {
+  transform-origin: 180px 92px;
+  animation: ultShockwavePulse 0.65s ease-out 0.25s infinite;
+}
+.anim-ult-title {
+  animation: ultTitleSlam 1.15s cubic-bezier(0.16, 1, 0.3, 1) both;
+}
+
